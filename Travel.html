@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Booking</title>
+</head>
+<body>
+    <h1>Tour Booking Form</h1>
+    <form id="bookingForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="tourdate">Tour Date:</label><br>
+        <input type="date" id="tourdate" name="tourdate" required><br><br>
+
+        <label for="country">Country:</label><br>
+        <select id="country" name="country" required>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+            <option value="Australia">Australia</option>
+            <option value="India">India</option>
+        </select><br><br>
+
+        <button type="button" onclick="sendWhatsAppMessage()">Chat Now</button>
+    </form>
+
+    <script>
+        function sendWhatsAppMessage() {
+            var name = document.getElementById('name').value;
+            var phone = document.getElementById('phone').value;
+            var email = document.getElementById('email').value;
+            var tourdate = document.getElementById('tourdate').value;
+            var country = document.getElementById('country').value;
+
+            var message = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nTour Date: ${tourdate}\nCountry: ${country}`;
+            var whatsappURL = `https://web.whatsapp.com/send?phone=6369828419&text=${encodeURIComponent(message)}`;
+
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
